@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedicWaste - Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .profile-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      width: 360px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #7a9e9f;
+      margin-bottom: 25px;
+    }
+
+    .profile-info {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .profile-info p {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .btn {
+      background: #7a9e9f;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #5f8484;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h2>Your Profile</h2>
+    <div class="profile-info">
+      <p><span class="label">Full Name:</span> <span id="profileName"></span></p>
+      <p><span class="label">Email:</span> <span id="profileEmail"></span></p>
+    </div>
+    <a href="homepage.html" class="btn">Go to Home</a>
+  </div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem("medicWasteUser"));
+
+    if (user) {
+      document.getElementById("profileName").textContent = user.name;
+      document.getElementById("profileEmail").textContent = user.email;
+    } else {
+      alert("No user data found. Please login first.");
+      window.location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>
